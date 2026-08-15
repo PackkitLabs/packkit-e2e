@@ -1,0 +1,22 @@
+{
+  "name": "packkit-e2e",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Released-version ecosystem harness for Packkit — cross-repo journeys against published packages.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "e2e": "node run.mjs",
+    "check": "node --check run.mjs && for f in lib/*.mjs journeys/*.mjs; do node --check \"$f\" || exit 1; done"
+  },
+  "//": "Deps are pinned to the `latest` dist-tag ON PURPOSE and no lockfile is committed, so every `npm install` resolves what a user gets today (see SPEC §4). The recorded results/versions.json is the reproducibility trail.",
+  "dependencies": {
+    "@packkit/core": "latest",
+    "@packkit/provider-aws": "latest",
+    "@packkit/provider-netlify": "latest",
+    "create-packkit": "latest",
+    "create-packkit-py": "latest",
+    "create-packkit-go": "latest",
+    "semver": "^7.6.0"
+  }
+}
